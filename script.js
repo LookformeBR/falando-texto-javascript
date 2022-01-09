@@ -9,7 +9,7 @@ voices();
 
 function voices(){
     for(let voice of synth.getVoices()){
-        let selected = voice.name === "Google US English" ? "selected" : "";
+        let selected = voice.name === "Google Inglês dos EUA" ? "selected" : "";
         let option = `<option value="${voice.name}" ${selected}>${voice.name} (${voice.lang})</option>`;
         voiceList.insertAdjacentHTML("beforeend", option);
     }
@@ -37,21 +37,21 @@ speechBtn.addEventListener("click", e =>{
             setInterval(()=>{
                 if(!synth.speaking && !isSpeaking){
                     isSpeaking = true;
-                    speechBtn.innerText = "Convert To Speech";
+                    speechBtn.innerText = "Converter para fala";
                 }else{
                 }
             }, 500);
             if(isSpeaking){
                 synth.resume();
                 isSpeaking = false;
-                speechBtn.innerText = "Pause Speech";
+                speechBtn.innerText = "Pausar fala";
             }else{
                 synth.pause();
                 isSpeaking = true;
-                speechBtn.innerText = "Resume Speech";
+                speechBtn.innerText = "Pausar Fala";
             }
         }else{
-            speechBtn.innerText = "Convert To Speech";
+            speechBtn.innerText = "Converter Fala";
         }
     }
 });
